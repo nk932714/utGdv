@@ -1,22 +1,24 @@
 var google = require('googleapis');
 var googleAuth = require('google-auth-library');
-var credit = require('../../client_secret.json');
-const client_id = process.env.client_id;
+//var credit = require('../../client_secret.json');
+/*const client_id = process.env.client_id;
 const project_id = process.env.project_id;
 const client_secret = process.env.client_secret;
 const redirect_uris = process.env.redirect_uris;
-const scopes = process.env.scopes;
+const scopes = process.env.scopes; */
 
 
 function Drive() {
 }
 Drive.prototype.init = ()=> {
     this.credits = {
-        client_id: credit.web.client_id,
-        client_secret: credit.web.client_secret,
-        redirect: credit.web.redirect_uris[0]
+        client_id: process.env.client_id,
+        client_secret: process.env.client_secret,
+       // redirect: credit.web.redirect_uris[0]
+          redirect: process.env.redirect_uris
+
     };
-    this.SCOPES = credit.web.scopes;
+    this.SCOPES = process.env.scopes;
 }
 Drive.prototype.connect = ()=> {
     var auth = new googleAuth();
